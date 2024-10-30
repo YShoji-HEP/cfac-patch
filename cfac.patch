@@ -1,0 +1,19 @@
+
+--- faclib/radial.c.orig 2024-05-14 16:59:23.616046256 +0200
++++ faclib/radial.c 2024-05-14 17:10:55.532046586 +0200
+@@ -956,6 +956,7 @@
+     a = GetPhaseShift(cfac, k);
+     while(a < 0) a += TWO_PI;
+     a -= (int)(a/TWO_PI);
++    fprintf(f, "#  ilast = %i\n", orb->ilast);
+     fprintf(f, "#  phase = %15.8E\n", a);
+     fprintf(f, "\n\n");
+     z = GetResidualZ(cfac);
+@@ -979,7 +980,7 @@
+       fprintf(f, "%-4d %14.8E %13.6E %13.6E %13.6E %13.6E\n",
+               i, potential->rad[i],
+               Large(orb)[i], Large(orb)[i+1],
+-              Small(orb)[i], a);
++              Small(orb)[i], Small(orb)[i+1]);
+     }
+   }
